@@ -5,7 +5,7 @@
 
 -- -- Create data tables
 -- CREATE TABLE demographics (
---        patient_id integer,
+--        patient_id character varying,
 --        birth_year integer,
 --        gender integer,
 --        race integer,
@@ -14,12 +14,13 @@
 --        zip integer);
  
 CREATE TABLE remote_surveillance (
-	patient_id integer NOT NULL,
+	patient_id character varying NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
     visit_no integer NOT NULL,
-    type_ integer NOT NULL
+    type_ integer NOT NULL,
+    dummy integer NOT NUll
     -- encounter_id integer NOT NULL,
     -- diag_src character varying NOT NULL,
     -- icd9 character varying NOT NULL,
@@ -30,12 +31,13 @@ CREATE TABLE remote_surveillance (
 );
 
 CREATE TABLE surveillance (
-    patient_id integer NOT NULL,
+    patient_id character varying NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
     visit_no integer NOT NULL,
-    type_ integer NOT NULL
+    type_ integer NOT NULL,
+    dummy integer NOT NUll
     -- encounter_id integer NOT NULL,
     -- diag_src character varying NOT NULL,
     -- icd9 character varying NOT NULL,
@@ -64,7 +66,7 @@ CREATE TABLE surveillance (
 -- -- 
 
 -- CREATE TABLE vitals (
--- 	patient_id integer,
+-- 	patient_id character varying,
 -- 	height_timestamp timestamp,
 -- 	height_visit_no integer,
 -- 	height real,
@@ -84,7 +86,7 @@ CREATE TABLE surveillance (
 
 
 -- CREATE TABLE labs (
--- 	patient_id integer,
+-- 	patient_id character varying,
 -- 	timestamp_ timestamp,
 -- 	test_name character varying,
 -- 	value_ character varying,
@@ -94,13 +96,13 @@ CREATE TABLE surveillance (
 
 
 CREATE TABLE passenger (
-    patient_id integer NOT NULL,
+    patient_id character varying NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
     medication character varying NOT NULL,
     dosage character varying NOT NULL,
-    route character varying
+    route_ character varying
     -- timestamp_ timestamp without time zone
 );
 
@@ -110,13 +112,13 @@ CREATE TABLE site (
 
 
 CREATE TABLE remote_passenger (
-	patient_id integer NOT NULL,
+	patient_id character varying NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
     medication character varying NOT NULL,
     dosage character varying NOT NULL,
-    route character varying
+    route_ character varying
     -- timestamp_ timestamp without time zone
 );
 
@@ -124,7 +126,7 @@ CREATE TABLE remote_passenger (
 -- CREATE TABLE mi_cohort_medications AS SELECT * FROM medications  WHERE year = :test_year AND (site=:site1 OR site=:site2) AND patient_id IN (SELECT * FROM mi_cohort); 
 
 -- CREATE TABLE a_diagnoses (
--- 	patient_id integer,
+-- 	patient_id character varying,
 -- 	icd9 character varying,
 -- 	timestamp_ timestamp);
 
@@ -167,7 +169,7 @@ GRANT SELECT(visit_no) ON surveillance TO public_attribute;
 
 GRANT SELECT(patient_id) ON passenger TO public_attribute;
 GRANT SELECT(dosage) ON passenger TO public_attribute;
-GRANT SELECT(route) ON passenger TO public_attribute;
+GRANT SELECT(route_) ON passenger TO public_attribute;
 GRANT SELECT(medication) ON passenger TO protected_attribute;
 
 -- GRANT SELECT(patient_id) ON mi_cohort_medications TO public_attribute;
