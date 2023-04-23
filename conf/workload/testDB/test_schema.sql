@@ -5,7 +5,7 @@
 
 -- -- Create data tables
 -- CREATE TABLE demographics (
---        patient_id character varying,
+--        patient_id integer,
 --        birth_year integer,
 --        gender integer,
 --        race integer,
@@ -14,7 +14,7 @@
 --        zip integer);
  
 CREATE TABLE remote_surveillance (
-	patient_id character varying NOT NULL,
+	patient_id integer NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE remote_surveillance (
 );
 
 CREATE TABLE surveillance (
-    patient_id character varying NOT NULL,
+    patient_id integer NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE surveillance (
 -- -- 
 
 -- CREATE TABLE vitals (
--- 	patient_id character varying,
+-- 	patient_id integer,
 -- 	height_timestamp timestamp,
 -- 	height_visit_no integer,
 -- 	height real,
@@ -86,7 +86,7 @@ CREATE TABLE surveillance (
 
 
 -- CREATE TABLE labs (
--- 	patient_id character varying,
+-- 	patient_id integer,
 -- 	timestamp_ timestamp,
 -- 	test_name character varying,
 -- 	value_ character varying,
@@ -96,7 +96,7 @@ CREATE TABLE surveillance (
 
 
 CREATE TABLE passenger (
-    patient_id character varying NOT NULL,
+    patient_id integer NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE site (
 
 
 CREATE TABLE remote_passenger (
-	patient_id character varying NOT NULL,
+	patient_id integer NOT NULL,
     -- site integer NOT NULL,
     -- year integer NOT NULL,
     -- month integer NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE remote_passenger (
 -- CREATE TABLE mi_cohort_medications AS SELECT * FROM medications  WHERE year = :test_year AND (site=:site1 OR site=:site2) AND patient_id IN (SELECT * FROM mi_cohort); 
 
 -- CREATE TABLE a_diagnoses (
--- 	patient_id character varying,
+-- 	patient_id integer,
 -- 	icd9 character varying,
 -- 	timestamp_ timestamp);
 
